@@ -18,18 +18,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        // local.properties 파일에서 API 키 로드
-        val localProperties = Properties()
-        val localPropertiesFile = rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            localProperties.load(localPropertiesFile.inputStream())
-        }
-
-        // BuildConfig 필드에 API 키 추가
-        localProperties["MAPS_API_KEY"]?.let {
-            buildConfigField("String", "MAPS_API_KEY", it as String)
-        }
     }
 
     buildTypes {

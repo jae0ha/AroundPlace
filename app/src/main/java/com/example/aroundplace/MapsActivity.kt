@@ -37,7 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(binding.root)
 
         // Construct a PlaceClient
-        Places.initializeWithNewPlacesApiEnabled(applicationContext, BuildConfig.MAPS_API_KEY)
+        Places.initializeWithNewPlacesApiEnabled(applicationContext, "AIzaSyBfHnhGs9JXuRnbovK46xxp7lM--O9dDkM")
 
         // Construct a FusedLocationProviderClient.
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
