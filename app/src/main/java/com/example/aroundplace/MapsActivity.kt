@@ -47,16 +47,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         
-        // 주변 카페 표시하기 버튼
+        // 주변 음식점 표시하기
         val findRestrtButton = findViewById<Button>(R.id.findRestrtButton)
         findRestrtButton.setOnClickListener {
-            showCurrentPlace(hotelType)
+            showCurrentPlace(restaurantTypes)
         }
         
         // 주변 음식점 표시하기 버튼
         val findHotelButton = findViewById<Button>(R.id.findHotelButton)
         findHotelButton.setOnClickListener {
-            showCurrentPlace(restaurantTypes)
+            showCurrentPlace(hotelTypes)
         }
     }
 
@@ -136,8 +136,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     // 주변 검색 대상 선정
-    private val restaurantTypes = listOf(Place.Type.CAFE, Place.Type.BAKERY, Place.Type.MEAL_TAKEAWAY)
-    private val hotelType = listOf(Place.Type.LODGING)
+    private val restaurantTypes = listOf(Place.Type.CAFE, Place.Type.BAKERY, Place.Type.RESTAURANT, Place.Type.MEAL_TAKEAWAY)
+    private val hotelTypes = listOf(Place.Type.LODGING)
 
     private fun showCurrentPlace(types: List<Place.Type>) {
         if (mMap == null || !locationPermissionGranted) {
